@@ -6,9 +6,9 @@ parent: "Asymmetric Encryption" #The titles of pages this links from
 summary: "This activity uses a hotel metaphor to explain PGP with more support of public/private key encryption/decryption and hash/signature functions." #A 1 P summary that will go on listing pages and at the top of this page
 permalink: /curriculum/crypto-fundamentals/asymmetric-encryption/activity/pgphotel/ #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
 breadcrumb: "The PGP Hotel" #The name of this lesson
-date: 2024-02 #Last updateddate in YYYY-MM
+date: 2024-03 #Last updated date in YYYY-MM
 adids: Activity and Discussion # ADIDS element(s)
-duration: 10-15 minutes #free form duration/time field
+duration: 30 minutes #free form duration/time field
 
 ---
 
@@ -29,11 +29,15 @@ You and your friend are attending an event and staying at different hotels - you
 
 ## Call Your hotel's Front Desk (Normal Email)
 
-Without knowing much other than your friend's name and the hotel they're staying at, you could call you the front desk of your hotel (the Hilliot), and ask them to call Alice's hotel (the Marilton) and pass along the message. This is (almost exactly) how email works today.  Of course, now both front desks at both the Hilliot and Marilton know your message, and it's possible they used a courier to send it over, who also knows it.  If your message is totally innocent, this may be acceptable to you - it's certainly very easy.
+Without knowing much other than your friend's name and the hotel they're staying at, you could call you the front desk of your hotel (the Hilliot), and ask them to call Alice's hotel (the Marilton) and pass along the message. Of course, now both front desks at both the Hilliot and Marilton know your message.
+
+If your message is totally innocent, this may be acceptable to you - it's certainly very easy. This is (almost exactly) how email works today.
 
 ## Directly call their hotel's Front Desk (Internal or "TLS" protected email e.g. gmail-to-gmail, internal emails)
 
-If you happen to be staying in the same hotel, you could simplify this a lot - only the front desk would know, with no risk of a random courier or other hotel staff also knowing the message.  This is more akin to emailing within your own company, or from one gmail account to another.
+If you happen to be staying in the same hotel, you could simplify this a lot - only the front desk would know, with no risk of a random courier or other hotel staff also knowing the message.
+
+This is more akin to emailing within your own company, or from one gmail account to another, and also applies to a lot of messaging tools like Slack.
 
 ## Delivering the message securely (PGP or S/MIME)
 
@@ -41,23 +45,21 @@ Of course, if the message is more sensitive, you want to have even more control 
 
 ### Room Numbers and Keys (Encrypting the message)
 
-Now, Alice can give this room number our to anyone; it's not sensitive in any way.    Knowing that number doesn't give anyone access to her room - only Alice has the key to open the door itself and get in the room.
-
-In PGP-land, the room number is akin to your public key - you can share it widely.  The key to the door itself is your "private key" - it's important to keep this secure, and have an equally secure backup, but you should never share it.
+Now, Alice can give this room number our to anyone; it's not sensitive in any way. Knowing that number doesn't give anyone access to her room - only Alice has the key to open the door itself and get in the room.
 
 By knowing this room number and slipping your message under the door, you have securely delivered a message to Alice.  
 
+*In PGP-land, the room number is akin to your public key - you can share it widely.  The key to the door itself is your "private key" - it's important to keep this secure, and have an equally secure backup, but you should never share it.*
+
 ### Messages from under the door (Message Signing)
 
-It's important to note that as of now, Alice has received a very secure message - she sees the message at her door and knows that only she has the key to get inside the door.  While you may have put your name on the message, Alice doesn't know for sure who sent it.
+It's important to note that as of now, Alice has received a very secure message - she sees the message at her door and knows that only she has the key to get inside the door.  While you may have put your name -- and even your room number -- in the message, Alice doesn't *really* know for sure who sent it.
 
 The specific physics gets a bit unwieldly here, but let's consider what happens if you're standing outside Alice's room and you see a message pushed out from under the door.  The message is just sitting there in the open hallway, so anyone could read it, but you'd know that only the person who has the key to that room could have pushed that message out.  
 
 In PGP-land, this is message signing - to make sense of it, you have to know both the sender's identity (Alice@Marilton) and their room number (their public key) to know that it came from them.  
 
-You can sign a message to guarantee it's authenticity without encrypting it, and you can encrypt it without signing it.  You can also of course encrypt and sign
-
-
+You can sign a message to guarantee it's authenticity without encrypting it, and you can encrypt it without signing it.  You can also of course encrypt *and* sign.
 
 # Leading the Discussion
 
@@ -93,7 +95,9 @@ None of this prevents the hotels and even people on the street from tracking you
 
 ### Key Exchange
 
-If you think of the hotel more like an apartment building, it could even be listed on a public directory.  In PGP land, these are key servers.  Now, anyone could go and post up a fake listing on the directory, so it's best to not just refer to that listing, but to also confirm it directly with the person. 
+If you think of the hotel more like an apartment building, it could even be listed on a public directory.  In PGP land, these were key servers - now it's largely https://keys.openpgp.org/.  
+
+It's worth nothing that anyone could go and post up a fake listing on the directory, so it's best to not just refer to that listing, but to also confirm it directly with the person. Keys.openpgp.org takes an additional step that requires a working email account to share a key.
 
 ### Web of Trust
 

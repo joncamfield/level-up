@@ -1,7 +1,7 @@
 ---
 layout: module
-title: Hashes
-summary: 
+title: Asymmetric Encryption
+summary: This module explores asymmetric encryption, which is the cryptographic tool behind PGP, SSL/TLS, and much more.
 permalink: /curriculum/crypto-fundamentals/asymmetric-encryption/
 parent: Fundamentals of Cryptography
 breadcrumb: Asymmetric Encryption
@@ -11,19 +11,22 @@ level: Advanced
 prerequisites: Hashes, Entropy
 
 activity:
+  - name: The PGP Hotel
+    url: /curriculum/crypto-fundamentals/asymmetric-encryption/activity/pgphotel
   - name: Introduction to Encryption
     url: /curriculum/protecting-data/protecting-and-encrypting-devices/input/introduction-to-encryption/
+
 input:
- - name: HashesInput
-   url: /curriculum/crypto-fundamentals/hashes/input/hashes/
+ - name: Understanding Asymmetric Encryption
+   url: /curriculum/crypto-fundamentals/asymmetric-encryption/input/encryption/
 
 deepening:
- - name: HashesDeep
-   url: /curriculum/crypto-fundamentals/hashes/deepening/hashes/
+ - name: Encrypting Messages with RSA
+   url: /curriculum/crypto-fundamentals/asymmetric-encryption/deepening/encrypting-messages/
 
 synthesis:
- - name: HashesSyn
-   url: /curriculum/crypto-fundamentals/hashes/synthesis/hashes/
+ - name: Asymmetric Encryption Everywhere
+   url: /curriculum/crypto-fundamentals/asymmetric-encryption/synthesis/everywhere/
 
 ---
 
