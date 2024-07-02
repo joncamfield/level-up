@@ -27,6 +27,24 @@ SEC is a resource for people teaching digital security to their friends and neig
 - Initially developed by the Electronic Frontier Foundation, as of 2023 this resource has been transitioned to members of the LevelUp community for management.
 - [https://www.securityeducationcompanion.org/](https://www.securityeducationcompanion.org/)
 
+### [SaferJourno](https://saferjourno.org/)
+
+SaferJourno bolsters the digital security capacity of trainers working with journalists around the world. This guide provides trainers with best practice on how to mitigate an array of complex risks in a way that is both practical and accessible for the journalist and is designed for both experienced digital security trainers who are less familiar with teaching journalists, as well as media trainers who work with journalists but might lack digital security expertise.
+
+- By [Internews](https://internews.org/areas-of-expertise/global-tech/)
+- Languages: English
+- Updated: 2023
+
+### [Tabletop Exercise Scenarios and Facilitation Guide for Digital Safety Training for Journalists](https://internews.org/resource/tabletop-exercise-scenarios-and-facilitation-guide-for-digital-safety-training-for-journalists/)
+
+Tabletop exercises (TTXs) are a valuable scenario-based training tool, which can make digital safety training more engaging and interactive. These resources include a guide on designing and facilitating TTXs as a digital safety training method, as well as a set of digital safety focused TTX scenarios relevant for journalists, which may be used by anyone to enhance digital security training. Within these guides, you will find brief explanations of what is a TTX, why TTXs can be valuable supplements to digital safety trainings, and how one can develop, plan, and facilitate TTXs.
+
+- By [Internews](https://internews.org/areas-of-expertise/global-tech/)
+- Languages: English, Romanian, Croatian, Hungarian, Polish, Albanian, Czech, Bulgarian, Spanish, Arabic 
+- Updated: March 2024
+- [Tabletop Exercise Scenarios and Facilitation Guide for Digital Safety Training for Journalists](https://internews.org/resource/tabletop-exercise-scenarios-and-facilitation-guide-for-digital-safety-training-for-journalists/)
+
+
 # Resources for Training Participants
 
 ###  [Anti-Phishing and Email Hygiene](https://freedom.press/anti-phishing-and-email-hygiene)
