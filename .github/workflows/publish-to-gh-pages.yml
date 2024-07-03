@@ -53,7 +53,7 @@ jobs:
         run: echo "ghpages.level-up.cc" > ./_site/CNAME
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
 
   # Deployment in same repo / gh-pages job
   deploy:
