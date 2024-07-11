@@ -1,12 +1,12 @@
 ---
 layout: content-page
-title: "Deepening : Working with Entropy" # name your lesson unit
+title: "Deepening : Hashes" # name your lesson unit
 author: #The public names / pseudonyms of the authors
 parent: "Entropy and Password Security" #The titles of pages this links from
 summary: "" #A 1 P summary that will go on listing pages and at the top of this page
-permalink: /curriculum/crypto-fundamentals/entropy/deepening/working-with-entropy #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
+permalink: /curriculum/crypto-fundamentals/hashes/deepening/hashes #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
 breadcrumb: "Working with Entropy" #The name of this lesson
-date: 2024-01 #Last updateddate in YYYY-MM
+date: 2024-07 #Last updateddate in YYYY-MM
 adids: Deepening # ADIDS element(s): Activity and Discussion, Input, Deepening, Synthesis
 duration: 60-90 minutes #free form duration/time field
 platforms: #Where relevant, what mobile or computing platforms does this apply to: Linux, Mac OS, Windows, Android, iOS
@@ -16,46 +16,79 @@ platforms: #Where relevant, what mobile or computing platforms does this apply t
 
 # Materials 
 
-- This works best if you work through this collaboratively on a whiteboard, but you can also make a slide deck, or even do the calculations live on a spreadsheet.*
+* Participant who don't want to use the command line tools should download and install QuickHash [Download Link](https://www.quickhash-gui.org/downloads/) [Source Code](https://github.com/tedsmith/quickhash). QuickHash provides a [quick guide for installation](https://www.quickhash-gui.org/about-quickhash-gui/faqs/#qaef-1643) across the different platforms.
+
 
 # Deepening
 
+All modern operating systems have built in hash creation/verification tools, but they are command-line based. In this session, we will use a graphical tool called QuickHash, but we will also provide command-line options for users who are willing to use the command line and/or don't want to download additional software.
 
-## Let's actually calculate some entropy!
+## File Hashing
 
-To make things a bit easier, let's switch to numbers and pin codes for a bit, and explore a few routes one might take to try to guess a 4-digit code.
+Let’s get hands on and create and verify some hashes - first up, we'll verify the hash of the quickhash download file itself!
 
-### Brute Force
+*Note that ideally, you'd use one of the built-in tools below to verify QuickHash, as you're functionally trusting quickhash to verify itself here*
 
-A totally random number (0-9) would take 10 guesses to **guarantee** you guess the right number by "exhausting" the possibilities. When trying to guess a longer number (say, a 4 digit pin), you have to multiply by the number of digits, so a 4 digit pin takes 10×10×10×10, or 10,000 guesses.  For anyone who's forgotten the code to their luggage lock, this is what you're looking at.
+* On the QuickHash [Downloads](https://www.quickhash-gui.org/downloads/) page, click the name (not the download button) of the version you're using, which should take you to a page [like this Windows download page](https://www.quickhash-gui.org/download/quickhash-gui-v3-3-4-for-windows/).
+* Find the hash values at the bottom of the page. 
+* Open QuickHash
+* Select the File tab
+* Choose which hash you want to compute - in this case, the quickhash downloads pages provide SHA-1 and SHA-256 hashes, so choose one of those.
+ Select the quickhash zip file download
+* Compare the hash it created with the hash from the website - you can review it manually, or for better accuracy, paste in the value from the website in the "expected value" field (replacing the '…')
 
-Generally speaking, you have a chance at getting the "right" combination early, so you'd have to be incredibly unlucky to have to guess all 10,000 guesses - but even still, at 3 seconds a guess, you'd be at this for 8 hours straight.
+Hopefully the values matched! If not, verify you used the same hash algorithm, and are on the download page for both the operating system (Linux, Apple/OSX, Windows) AND version that you downloaded.
 
-### Informed Guessing: Dates
+## Text Hashing
 
-This is where understanding entropy really comes in handy.  Is that combination **really** actually random? Probably not. There's a good chance it's either a date or a year.  If it's a year, the first two numbers are probably either 19 or 20, and if it's 19, it's a good guess to work backwards from 99 down to 50. For 20, work up from 00 to 23. 
+* Open QuickHash
+* Select the Text tab
+* Choose which hash you want to compute
+* Type in text to the text box (*if you constantly get errors, type ... in the Expected Hash box or restart QuickHash*)
+* See the hash value in the the dark grey box below.
+* Try a few common strings like Password vs password vs Password! and see how different the hash values are.
+* Try a few different algorithms to see how they look, and how long they are (independent of how long your text is!)
 
-**This takes 10,000 guesses down to just 80** - 1×1×5×10 for 1950-1999 (1 guess × 1 guess × 5 guesses (5,6,7,8,9), × 10 guesses (0-9) = 50
-plus 1×1×3×10 for 2000-2023 (and you could cut that down more by not trying numbers in the future) = 30
+## Command Line Tools
 
-Now, of course, it could be a day/month combination in MMDD or DDMM
+### Windows
 
-(*work through this with the participants*)
+In Powershell (v4 or above), you can use the Get-FileHash 'cmdlet' for producing hash values.  For tilres 
 
-* What does month formatting look like from an entropy viewpoint? 01-12, so the first digit has 2 guesses, and the second has 10.
-* Days go from 01-31, so the first digit has 4 possible options, and the second has again 10.
-* So an exhaustive list of **all** MMDD options would take 2×10×4×10 or 800 more guesses, and DDMM adds another 800.
-* Notably, there are further shortcuts here! you don't need to test days for 32,33,34, etc. 
+`Get-FileHash C:\Users\user1\Downloads\Contoso8_1_ENT.iso -Algorithm SHA384 | Format-List`
 
-So to guess all recent years, and all month/day combinations, you're still looking at 1680 guesses, which is a lot more doable than 10,000 - but even this is still more work than an exhaustive guess of all possible combinations for a 3-digit combo lock.
 
-### Informed Guessing: Statistics
+Powershell unfortunately does not provide a simple way to compute a hash for a string, but there is a workaround, setting a string as a variable in what Microsoft calls a "stream":
 
-A (now-defunct) firm called DataGenetics put out a really [great post on PIN code entropy](https://web.archive.org/web/20180803052302/https://www.datagenetics.com/blog/september32012/), which makes the randomness of most PIN codes even more depressing with a dose of cold reality from leaked PIN data.  In their research, **"1234" accounted for 10% of all PIN codes by itself**, and "1111" brings in another 6%. 
+```
+$stringAsStream = [System.IO.MemoryStream]::new()
+$writer = [System.IO.StreamWriter]::new($stringAsStream)
+$writer.write("FOOBAR")
+$writer.Flush()
+$stringAsStream.Position = 0
+Get-FileHash -InputStream $stringAsStream -Algorithm SHA384 | Select-Object Has
+```
 
-Going through just 5 of most common from their 2018 analysis will net you over 20% of the PIN codes which were in the 3.5 million code leak, and you'll get 50% with onl 426 guesses.
+Microsoft provides [PowerShell GetHash documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-7.4)
 
-Of course, going against any single specific PIN code, you never know (unless you're ready and able to try the full 10,000!), but broadly speaking, you have a one-in-four chance to guess a random pin code in 20 guesses, and another 1000 guesses gives you frighteningly better odds.
+### OSX
 
-*The last discussion bit here puts this all together to painfully explain at length and with math you can use at home the famous ["Password Security" comic by xkcd](https://xkcd.com/936/)*
+Terminal
 
+### OSX and Linux
+
+In your Terminal program or directly in a command line, you have a variety of options in both OSX and Linux to check hashes. The most flexible is the openssl tool (it can also do a wide variety of other cryptographic tricks!).
+
+You can get a list of all the hash functions openssl supports with
+
+`openssl dgst -list`
+
+To get a hash of a short text string, use this command, replacing FOOBAR with your text (and selecting the hash, here using SHA-3)
+
+`printf FOOBAR | openssl dgst -sha3-256`
+
+To get a hash of a file, use this command, replacing FILENAME with the path to the file you want to hash (and selecting the hash, here using SHA-3):
+
+`openssl dgst -md5 FILENAME`
+
+*Of note, in Ubuntu, you can also install **nautilus-gtkhash** to add a right-click menu tab that will generate hashes for you in the file manager GUI.*

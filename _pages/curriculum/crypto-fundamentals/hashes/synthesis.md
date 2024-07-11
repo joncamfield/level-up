@@ -1,77 +1,48 @@
 ---
 layout: content-page
-title: "Synthesis : Password Security in a New Light" # name your lesson unit
-author: #The public names / pseudonyms of the authors
-parent: "Entropy and Password Security" #The titles of pages this links from
-summary: "" #A 1 P summary that will go on listing pages and at the top of this page
-permalink: /curriculum/crypto-fundamentals/entropy/synthesis/entropy-and-security/ #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
-breadcrumb: "Password Security in a New Light" #The name of this lesson
-date: 2024-01 #Last updateddate in YYYY-MM
+title: "Synthesis : Hashing" # name your lesson unit
+author: Jon Camfield #The public names / pseudonyms of the authors
+parent: "Hashes" #The titles of pages this links from
+summary: "A review of hashes and discussion of other creative uses for them." #A 1 P summary that will go on listing pages and at the top of this page
+permalink: /curriculum/crypto-fundamentals/hashes/synthesis/hashing-together/ #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
+breadcrumb: "Other Uses for Hashes" #The name of this lesson
+date: 2024-07 #Last updateddate in YYYY-MM
 adids: Synthesis # ADIDS element(s): Activity and Discussion, Input, Deepening, Synthesis
-duration: 30-60 minutes #free form duration/time field
+duration: 15-30 minutes #free form duration/time field
 
 ---
 
 # Synthesis
 
-## Some useful calculations - bits of entropy
+We've gone through many of the most visible uses of hashes, but it's worth taking a pause to reflect on the unique values of hash tools, specifically for the digital rights community.
 
-In information theory, these guesses have been turned into powers of two and called "bits" of entropy to make them a bit more flexible across more types of data.  A digit, with 10 possible guesses, has just over 3.32 "bits" of entropy (2^3.32 = 10 (ish)). This makes for some fun math, as you can simply add the entropy bit calculation when adding more numbers, so your average 4-digit PIN is 3.32+3.32+3.32+3.32 or 13.28, or 2^13.28 - which gets us back to 10,000 (OK, technically that's 9946, but we rounded off some numbers early on, so it should be 2^3.3219281...).
+## Verification
 
-## But What About Passwords
+We've focused a lot of our lesson time on the verification of a hash to double check the integrity of a document or downloaded file, but there are some other notable uses.
 
-I am sorry to inform you that words - and passwords - are even worse.
+## Private Secret Sharing
 
-Rewinding waaaaay back to where we started, language is not remotely random. We would think a letter would have 26 guesses, or 4.7 bits of entropy, what Shannon actually found is that when looking at language, it's closer to just 2.62 bits - less than a random number!
+The most important one is a privacy-preserving way to check if someone else knows the same secret that you do - but in a way that doesn't give that secret away unnecessarily!
 
-Entropy will forever drive how easy it is to guess a password.  It is the reason behind traditional guidance about super hard to remember passwords like "&Gs3a9(A"  The entropy of that is high, as the potential character set is 95 potential options per character (26 lower case, plus 26 upper case, plus 10 numbers, plus 33 symbols), or 6.57 potential bits of entropy per character, but that depends on each letter being **truly** random.
+If you suspect you and someone (or some service) share knowledge about something sensitive, you can provide a hash of that secret to the other person.  If they know the secret, they can hash the same thing, get the same result, and then share back to you whatever that secret was, knowing for sure that you also know it and proving to you that they know it.  
 
-That's a lot (2^(6.57×8) = 6.63×10¹⁵ (6 *quadrillion*) guesses packed into a relatively short password. But there are more ways to generate entropy than just randomness -- length works also!
+That feels very abstract, so let's discuss two real-world uses there.  
 
-"Correct Horse Battery Staple"
+### Threat Research
 
-https://www.explainxkcd.com/wiki/index.php/936:_Password_Strength
+First, if you receive a suspicious file and think that it might be, for example, a phishing attempt by a powerful adversary, you might want to get more information about it -- has that file been seen before, is anyone else researching it, etc.  One place to do this is at VirusTotal, an open database of information about malicious actors.  
 
-Play around with what password lengths (presuming random character selection) look like with entropy and different character combinations here: https://silverhammermba.github.io/password/
+However - uploading the file can reveal to such an adversary that they have triggered suspicion, which might lead them to move or hide their phishing websites and change tactics.  You can instead take a hash of that file and use [VirusTotal's "Search" function](https://www.virustotal.com/gui/home/search).  This only gives you results if someone else has already flagged the file, and if not, it preserves your ability to work with groups like [RaReNet members](https://www.rarenet.org/), [CiviCERT](https://www.civicert.org/), [Amnesty Tech](https://www.amnesty.org/en/tech/) or [CitizenLab](https://citizenlab.ca/) to do further analysis without revealing anything to the adversary.
 
-## Real World Impacts
+### Threat Sharing
 
-It's important to close on a note of feasibility - both on what attackers can actually do, and how easy it is to dramatically up the difficulty for even the most powerful adversaries.
+An unfortunately common problem has been bad actors inside the digital rights community, and a need to coordinate a community-wide response without abusing the privacy of the alleged bad actor, any potentially unwilling collaborates, and definitely not their victims.  A powerful, public example of this use case is seen in [blog post](https://blog.patternsinthevoid.net/the-ccc-men-who-hate-women.html) (***Content Warning**: rape, sexual assault, whistleblower retaliation*).  In this post, people who know and/or have a very informed guess can verify using the hash who the person being discussed is without this person's identity, and potential ability to more fully change their ways, being widely harmed.  It's worth noting that you may have to give some hints (like firstname lastname all lowercase) to ensure you are both hashing the same string and not failing to match because someone's using capitals and the other isn't).
 
-Cracking a password depends on being able to know when you've cracked the code.  That feels obvious, but you can't actually just go around trying thousands of passwords at a time on modern websites.
+## "I Told You So"
 
-**So, that means a lot of this insane scale really depends on exactly what is going on in terms of "cracking" the password.** A powerful, dedicated computer with unfettered access to try and break a password can make hundreds of thousands of guesses per second. But, using most of these tricks directly against a modern online service will both take a very, very long time, and generally get the attacked blocked and the account locked down due to the number of failed password attempts.
+Another use is future proofing a statement without necessarily making the statement public.  If you want to make a prediction, or simply state something you know in the present time and might want to be able to, in the future, absolutely prove that you knew it at that specific time, posting a hashed value of that statement to a public location where edits are visible (such as on your social media page, or on a website), provides a path.  At whatever moment you're willing to reveal this piece of knowledge, you can refer to that earlier hashed value and provide the original string (which you must remember exactly, like a password, for this to work).  The timestamp records from wherever you posted the hash, plus the verification of the hash with the original value, provides proof that you wrote that specific original value and hashed it at that moment in time.
 
-So, how does this happen in real life?  The attacker needs direct access to a stolen or leaked database of passwords (these are generally just the hashes of the password, but can still be tested against rapidly). These breaches do happen quite often, and you can read about breaches as well as search them for your username to see if you've been impacted at https://haveibeenpwned.com/ .
+## Other creative use cases
 
-## Defense against password hacking
-
-**Avoid Password re-use**
-
-It's worth noting that this breach model is also a **huge reason to avoid password re-use**.  Once a password associated with a username or email has been discovered from one leak, attackers will rapidly try that same combination across other popular services.  
-
-**Use 2-factor authentication**
-
-2-Factor authentication is of course another critical protection here, as it adds another requirement beyond just guessing a password, for account access.  This severely limits access by remote attackers, forcing them to try and trick the victim into giving away the 2-factor code, or requiring some access to their second factor.
-
-**Password managers**
-
-With the miracle of password managers, you can get strong and unique passwords wherever the websites allow it! They can make passwords like this:
-
-	4jRjz@7Mb8z2wH$ne*Wc8CcSD6QTq#p6T*^H!*x$$$NqZp7\ 7qsbrho78ruLNKFfQsu#Jtuev4\ hPXaVgAVR6u6Gcq$xfmgzmm
-
-Which you never have to remember or even type in, and you get ridiculous amounts of randomness for free. 
-
-Consider using all of these approaches - use long but memorable passphrases for the things you **must** keep in your head, and use a password manager (and 2-factor!) for everything else.
-
-
-## Further reading
-
-[Entropy and Password Strength](https://en.wikipedia.org/wiki/Password_strength#Entropy_as_a_measure_of_password_strength) 
-
-[Information Theory and Entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)).
-
-[SAFETAG Activity on password strength](https://safetag.org/activities/password_strength)
-
-[The "Milksad" vulnerability provides a real-world example](https://milksad.info/)
+Can participants come up with other creative applications of hashing tools?
 
