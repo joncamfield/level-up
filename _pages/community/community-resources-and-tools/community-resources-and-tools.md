@@ -33,7 +33,7 @@ SaferJourno bolsters the digital security capacity of trainers working with jour
 
 - By [Internews](https://internews.org/areas-of-expertise/global-tech/)
 - Languages: English
-- Updated: 2023
+- Updated: 2024
 
 ### [Tabletop Exercise Scenarios and Facilitation Guide for Digital Safety Training for Journalists](https://internews.org/resource/tabletop-exercise-scenarios-and-facilitation-guide-for-digital-safety-training-for-journalists/)
 
