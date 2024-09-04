@@ -1,0 +1,39 @@
+---
+layout: module
+title: Hashes
+summary: 
+permalink: /curriculum/crypto-fundamentals/hashes/
+parent: Fundamentals of Cryptography
+breadcrumb: Hashes
+author: Jon Camfield
+date: 2024-07
+platforms: 
+level: 
+prerequisites:
+
+activity:
+  - name: Simple Hashes in Everyday Life
+    url: /curriculum/crypto-fundamentals/hashes/activity/hash-creation/
+
+input:
+ - name: Learning about Hashes and their Limits
+   url: /curriculum/crypto-fundamentals/hashes/input/hashes/
+
+deepening:
+ - name: Hands on with Hashing
+   url: /curriculum/crypto-fundamentals/hashes/deepening/hashes/
+
+synthesis:
+ - name: Other Uses for Hashes
+   url: /curriculum/crypto-fundamentals/hashes/synthesis/hashes/
+
+---
+
+## Learning Goals
+
+* Baseline understanding of how hashes work
+* Hands-on experience calculating and verifying hashes
+* Information on the current attacks against hashes and current best practices.
+* A working understanding of the role of hashes in digital security
+* An understanding of additional use cases of hashes in limited information sharing
+
