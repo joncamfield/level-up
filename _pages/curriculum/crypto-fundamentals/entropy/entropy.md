@@ -8,8 +8,8 @@ breadcrumb: Entropy and Password Security
 author: Jon Camfield
 date: 2024-02
 platforms: 
-level: 
-prerequisites:
+level: Advanced
+prerequisites: Safer Communication, Protecting Data
 
 activity:
   - name: Guessing Game

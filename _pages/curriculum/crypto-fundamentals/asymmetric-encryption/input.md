@@ -23,7 +23,7 @@ Obviously, we will need something a bit more powerful for modern secure communic
 
 Symmetric encryption filled this gap by itself for decades.  It is very powerful, and widely used even today -- but by itself, it has some serious limitations. 
 
-One version of this is what’s referred to as a “One Time Pad” (OTP) - which, if done to very exacting standards, is still considered “unbreakable”.  https://en.wikipedia.org/wiki/One-time_pad 
+One version of this is what is referred to as a “One Time Pad” (OTP) - which, if done to very exacting standards, is still considered “unbreakable”.  https://en.wikipedia.org/wiki/One-time_pad 
 
 Unfortunately those exacting standards are all but impossible to do in practice, and certainly at any scale. An OTP is effectively a long string of completely, truly random characters, which you “add” to the characters of your own message, to create what looks like gibberish. The recipient has to use the exact same pad (and know exactly where to start using it) to decrypt it, and the pad of random characters has to be at least as long as the message.
 
@@ -45,5 +45,5 @@ The rest of symmetric key encryption - which just means a type of encryption whe
 
 ## What Asymmetric Encryption is
 
-public key, private key
+Asymmetric encryption takes advantage of some quirks in math to be able to get beyond the limits of otherwise-powerful One Time Pads and similar symmetric encryption tools - they allow you to share, absolutely publicly, a piece of information that enables people to create messages that only the person with a mathematically corresponding piece of information can read.  We will actually work through the math behind this in the next portion, but at it's root it exploits the hard fact that multiplication is a lot easier, from a computational standpoint, than division is.
 

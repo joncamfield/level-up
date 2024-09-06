@@ -28,6 +28,3 @@ Try for as many guesses as you can in the time allotted, call out for every cumu
 * Why was is easy to get so many correct guesses?
 * While we often think about cities as big, messy chaotic places - perhaps they share more order than it seems?
 
-
-
-
