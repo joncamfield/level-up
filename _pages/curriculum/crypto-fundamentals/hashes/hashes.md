@@ -1,15 +1,15 @@
 ---
 layout: module
-title: Hashes
-summary: 
+title: Hashes in Everyday Life
+summary: Hashes help provide proof of integrity and knowledge across everything from credit card numbers to safe downloads to threat hunting to email signatures to community solidarity. This module walks through common uses and easy-to-use tools.
 permalink: /curriculum/crypto-fundamentals/hashes/
 parent: Fundamentals of Cryptography
 breadcrumb: Hashes
 author: Jon Camfield
 date: 2024-07
-platforms: 
-level: 
-prerequisites:
+platforms: Linux, MacOSX, Windows
+level: Advanced
+prerequisites: Entropy
 
 activity:
   - name: Simple Hashes in Everyday Life
