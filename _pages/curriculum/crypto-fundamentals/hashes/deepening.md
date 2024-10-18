@@ -4,7 +4,7 @@ title: "Deepening : Hashes" # name your lesson unit
 author: #The public names / pseudonyms of the authors
 parent: "Entropy and Password Security" #The titles of pages this links from
 summary: "" #A 1 P summary that will go on listing pages and at the top of this page
-permalink: /curriculum/crypto-fundamentals/hashes/deepening/hashes #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
+permalink: /curriculum/crypto-fundamentals/hashes/deepening/hashes/ #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
 breadcrumb: "Working with Entropy" #The name of this lesson
 date: 2024-07 #Last updateddate in YYYY-MM
 adids: Deepening # ADIDS element(s): Activity and Discussion, Input, Deepening, Synthesis
