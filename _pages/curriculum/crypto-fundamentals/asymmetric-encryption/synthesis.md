@@ -22,7 +22,8 @@ PGP and S/MIME, ways to encrypt email - same deal.  PGP uses keys more directly,
 
 These are all broadly using the same toolkits.  There absolutely are important implementation differences, and they all **also** use symmetric encryption as part of their process - but fundamentally, they use asymmetric, public/private key exchange, as the core part of how they verify you're talking with who you think you are, and to jumpstart the encryption process.  
 
-## If asymmetric crypto is so cool, what about symmetric crypto?
+
+## If asymmetric crypto is so cool, what about symmetric crypto? (TBD)
 
 * limits of RSA
 * layering of symmetric keys inside asymetric systems - PGP! 
@@ -86,10 +87,11 @@ Browsers provide a default list of trustworthy root certificates, and so far hav
 
 At the risk of grossly simplifying a lot of incredibly cool work under the hood, Signal also uses an asymmetric key exchange to bootstrap it's "Double Ratchet" protocol.  Signal improves mightily on the security that PGP provides. Once a PGP key is compromised, it can be used to read any message the malicious actor has access to which was previously encrypted using it.  Signal, on the other hand, is constantly changing its keys in the background, such that access to any one key only provides access to the specific message it encrypted.  That said, the "identity" key is critical in ensuring you're having this super-secure conversation with who you think you are, which is why it's important to take note whenever you get that "Safety Number with ... has changed" message!
 
-## Beyond RSA
+## Beyond RSA (TBD)
 
 DH https://crypto.stackexchange.com/a/42187
 
 ECC
 
 Post-Quantum? (Martijn's piece?)
+
