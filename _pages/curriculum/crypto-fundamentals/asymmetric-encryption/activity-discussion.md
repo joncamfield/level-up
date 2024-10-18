@@ -16,7 +16,8 @@ https://www.joncamfield.com/blog/2017.01/lets-talk-about-pgp
 
 # Materials to Prepare
 
-There are a ton of ways people have described PGP in specific and public key cryptography more generally - from mixing paint (http://gizmodo.com/5888567/how-to-understand-encryption-using-paint-and-clocks, http://maths.straylight.co.uk/archives/108) to magic lock-boxes and Romeo and Juliet (https://www.level-up.cc/leading-trainings/training-curriculum/activity/love-story). 
+There are a ton of ways people have described PGP in specific and public key cryptography more generally - from mixing paint (http://gizmodo.com/5888567/how-to-understand-encryption-using-paint-and-clocks, http://maths.straylight.co.uk/archives/108) to magic lock-boxes and Romeo and Juliet (https://www.level-up.cc/leading-trainings/training-curriculum/activity/love-story). There are even dances (https://ooooo.be/cryptodance/) and a 3D printable box (https://conexionsegura.org/box)!
+
 
 This approach uses the experience of a hotel (or, alternatively, apartment buildings with front desk staff) as an analogy which can stretch to cover not just PGP-style asymmetric cryptography, but also digital signatures.  This is written to explain PGP, but can be adapted for S/MIME and other public key crypto approaches.
 
