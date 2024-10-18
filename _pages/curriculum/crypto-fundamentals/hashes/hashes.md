@@ -17,15 +17,15 @@ activity:
 
 input:
  - name: Learning about Hashes and their Limits
-   url: /curriculum/crypto-fundamentals/hashes/input/hashes/
+   url: /curriculum/crypto-fundamentals/hashes/input/whats-a-hash/
 
 deepening:
  - name: Hands on with Hashing
-   url: /curriculum/crypto-fundamentals/hashes/deepening/hashes/
+   url: /curriculum/crypto-fundamentals/hashes/deepening/using-hashes/
 
 synthesis:
  - name: Other Uses for Hashes
-   url: /curriculum/crypto-fundamentals/hashes/synthesis/hashes/
+   url: /curriculum/crypto-fundamentals/hashes/synthesis/hashing-together/
 
 ---
 
