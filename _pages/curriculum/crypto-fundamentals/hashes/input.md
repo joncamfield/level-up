@@ -4,7 +4,7 @@ title: "Input : Learning about Hashes and their Limits" # name your lesson unit
 author: Jon Camfield #The public names / pseudonyms of the authors
 parent: "Hashes" #The titles of pages this links from
 summary: "" #A 1 P summary that will go on listing pages and at the top of this page
-permalink: /curriculum/crypto-fundamentals/deepening/input/whats-a-hash/ #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
+permalink: /curriculum/crypto-fundamentals/hashes/input/whats-a-hash/ #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
 breadcrumb: "Learning about Hashes and their Limits" #The name of this lesson
 date: 2024-07 #Last updateddate in YYYY-MM
 adids: Input # ADIDS element(s): Activity and Discussion, Input, Deepening, Synthesis
