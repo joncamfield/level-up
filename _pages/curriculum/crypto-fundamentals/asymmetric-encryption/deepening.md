@@ -4,7 +4,7 @@ title: "Deepening : Encrypting Messages with RSA" # name your lesson unit
 author: Jon Camfield #The public names / pseudonyms of the authors
 parent: "Asymmetric Encryption" #The titles of pages this links from
 summary: "" #A 1 P summary that will go on listing pages and at the top of this page
-permalink: /curriculum/crypto-fundamentals/asymmetric-encryption/deepening/encrypting-messages #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
+permalink: /curriculum/crypto-fundamentals/asymmetric-encryption/deepening/encrypting-messages/ #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
 breadcrumb: "Encrypting Messages" #The name of this lesson
 date: 2024-09 #Last updateddate in YYYY-MM
 adids: Deepening # ADIDS element(s): Activity and Discussion, Input, Deepening, Synthesis
