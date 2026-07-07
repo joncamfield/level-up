@@ -29,20 +29,6 @@ Let's dig in to a few common places hashes are used, and what work they are doin
 
 As you explored in the activity, credit cards use a basic form of hashing, called a checksum.  These are not resilient against malicious attacks, but provide simple ways to detect accidental errors - like a typo on a credit card payment form, or a file that has an error in it.
 
-### Passwords
-
-Hashes are - or at least should be - fundamental to websites and passwords. Websites don't actually store your password; as doing so opens up a ton of risk from bad employees to huge problems if their password database gets stolen.  What they actually store is a cryptographically secure hash of the password. This lets them store a code that's not easily reversible back to your real password, but also lets them re-run the same hash on the password you provide when logging in, and make sure it matches the hash they have stored. 
-
-This is notably how [HaveIBeenPwned](https://haveibeenpwned.com/) is able to safely track and correlate password breaches and their impact.
-
-Hashes for passwords are great, but insufficient by themselves for "common" passwords. 
-
-Common and obvious passwords - not just password1, 12345, and so on, but also the most obvious substitutions like P@assw0rd - have all been exhaustively explored.  As mentioned in the article below, if you take a hash (using md5) of P@assword and google search it, you get hundreds of results from "reverse" hash databases which have pre-compiled hashes for known common passwords, making simple hashes less secure for common passwords - and if you've already gone through the [Entropy]() lesson, you'll know just how common common password are. 
-
-Additional detail: https://www.troyhunt.com/we-didnt-encrypt-your-password-we-hashed-it-heres-what-that-means/
-
-And as always, XKCD has a great example of this with their [password crossword](https://www.explainxkcd.com/wiki/index.php/1286:_Encryptic) - which someone made into a playable game based on an Adobe password leak: https://zed0.co.uk/crossword/ 
-
 ### Downloading software
 
 When you want to be extra sure that the file you downloaded is the same one you got, you can (and are often encouraged to) "check the hash" or "review the checksum" - these are hashes provided on the download side which you can also then run a local hash program on the file, and check that they match.  If they don't, something's gone very wrong. 
@@ -59,16 +45,20 @@ When you choose to "sign" an email or create a signature on a file with PGP, you
 Obviously that's useless for confidentiality, but if you wanted to be able to, say, prove that a document was exactly as you intended it to be, and to guarantee that exactly and only you were claiming that proof, a combination of a hash (to verify the exact state of a document and its contents) with an encryption system flipped over such that anyone could verify that the owner of a specific private key had encrypted that hash - becomes oddly powerful and useful.
 
 
+### Passwords
+
+Hashes are - or at least should be - fundamental to websites and passwords. Websites don't actually store your password; as doing so opens up a ton of risk from bad employees to huge problems if their password database gets stolen.  What they actually store is a secure hash of the password. This lets them store a code that's not easily reversible back to your real password, but also lets them re-run the same hash on the password you provide when logging in, and make sure it matches the hash they have stored. (Additional detail on the use of hashing in passwords follows under the *Attacks against Hashes* section)
+
+Additional resources on passwords an hashing: 
+
+* [Hashing vs encryption and password breaches](https://www.troyhunt.com/we-didnt-encrypt-your-password-we-hashed-it-heres-what-that-means/)
+* This is notably how [HaveIBeenPwned](https://haveibeenpwned.com/) is able to safely track and correlate password breaches and their impact.
+
 ## Attacks against Hashes
 
-We started with defining hashes as (1) one way - you cannot discover the original value from the hash of it, and (2) unique - exactly one input creates exactly one output.  These are only ... mostly true. Let's talk about a few of the attacks against hashes.
+We started with defining hashes as (1) one way - you cannot discover the original value from the hash of it, and (2) unique - exactly one input creates exactly one output.  These are only ... mostly true. Let's talk about a few of the attacks against hashes. 
 
-### Rainbow Tables
-
-As we discussed in the password section above, if you can guess the input to the hash, you can verify you "got" the right answer if hashing your guess matches the stored hash value. 
-
-In fact, people have essentially "brute forced" many common passwords and made extensive lists, called [Rainbow Tables](https://en.wikipedia.org/wiki/Rainbow_table). Luckily, most websites add what's called a "salt" to each password, which adds a non-secret value to the password, rendering pre-computed rainbow tables useless by changing the hashed value and thereby changing the hash itself.
-
+As with most security, the important question is what is being attacked? Is an attacker trying to create a collision to deploy malware or undermine the veracity of a document? Are they trying to discover passwords from a collection of hashed passwords? While there are many commonalities on the defense side, some approaches are more focused on dramatically slowing down brute force attacks (to reveal passwords), while most simple "hash" functions are more focused on collision prevention.
 
 ### Collisions
 
@@ -76,14 +66,36 @@ In the world of hashes, a collision means two **different** inputs create the sa
 
 Collisions are - thankfully - rare, and using more updated hashing tools dramatically reduces the possibility of a collision being created. We we'll get to in the final section, there are different algorithms available to create hashes.  One, which is still commonly used, is called md5, and it has been found to be vulnerable to (complicated) collision based attacks - you can see a [demonstration and code here](https://www.mscs.dal.ca/~selinger/md5collision/). It can still be useful, as it creates short output strings, but must be considered less secure than some other options.
 
+### Rainbow Tables
+
+As we discussed in the password section above, if you can guess the input to the hash, you can verify you "got" the right answer if hashing your guess matches the stored hash value. 
+
+In fact, people have essentially "brute forced" many common passwords and made extensive lists, called [Rainbow Tables](https://en.wikipedia.org/wiki/Rainbow_table). Luckily, most websites add what's called a "salt" to each password, which adds a non-secret value to the password, rendering pre-computed rainbow tables useless by changing the hashed value and thereby changing the hash itself.
+
+### Attacks against password hashes
+
+Hashes for passwords are great, but insufficient by themselves for "common" passwords. 
+
+Common and obvious passwords - not just password1, 12345, and so on, but also the most obvious substitutions like P@assw0rd - have all been exhaustively explored.  As mentioned in the article below, if you take a hash (using md5) of P@ssword (it's 382e0360e4eb7b70034fbaa69bec5786) and google search it, you get hundreds of results from "reverse" hash databases which have pre-compiled hashes for known common passwords -- the rainbow tables mentioned above, making simple hashes less secure for common passwords. If you've already gone through the [Entropy](/curriculum/crypto-fundamentals/entropy/) lesson, you'll know just how common common password are. 
+
+Further, just like with encryption, different hashing algorithms have different levels of security and resilience - md5 is very basic, and is (comparably) easy reverse using pre-compiled tables of known hashes as well as simply brute-force guessing. 
+
+Modern password "hashing" systems use significantly stronger variations of this concept, with tricks to block using these pre-compiled tables (adding additional characters to each password before hashing the combination, that are unique to that user on that system, called a *salt*), and by using algorithms specifically designed to make large-scale attacks slow and costly, even if the adversary has custom-built hardware. Most advanced tools are called [Key Derivation Functions](https://en.wikipedia.org/wiki/Key_derivation_function), but similarly provide a one-way path from a password to a safer, consistent, but even harder to reverse string.
+
+
 ## Hash Functions
 
-For normal files, passwords, and text, the most common hash algorithms you'll see are likely MD, SHA-1, and SHA-2 (also often called SHA-256), and more recently, SHA-3.  Of these, MD5 as mentioned suffers from (relatively) easy collisions, and SHA-1 has been more recently [found vulnerable](https://www.zdnet.com/article/sha-1-collision-attacks-are-now-actually-practical-and-a-looming-danger/) to some collision attacks.  As of publication date, SHA-2 remains largely secure, and SHA-3 is even more secure.
+For normal files, passwords, and text, the most common hash algorithms you'll see are likely MD, SHA-1, and SHA-2 (also often called SHA-256), and more recently, SHA-3.  Of these, MD5 as mentioned suffers from (relatively) easy collisions, and SHA-1 has been more recently [found vulnerable](https://www.zdnet.com/article/sha-1-collision-attacks-are-now-actually-practical-and-a-looming-danger/) to some collision attacks.  As of publication date, SHA-2 remains largely secure, and SHA-3 is even more secure. 
 
-[Wikipedia](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms)maintains an article with a chart of the security of these most used hash algorithms.
+Looking at hashing algorithms for password security, the more advanced tools (classed as Key Derivation Functions), are used - these combine multiple technologies to ensure a baseline of entropy and are built to be very slow to brute force at scale. Examples include bcrypt and scrypt.
+
+[Wikipedia](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms) maintains an article with a chart of the security of these most used hash algorithms, and a similar one for [Key Derivation Functions](https://en.wikipedia.org/wiki/Key_derivation_function)
+
 
 ### A note on image hashes
 
-Images (and other media) are particularly challenging to "hash" in the same way we use hashes for absolute precise matching of other types of files. Changing a pixel in an image is very different from changing a word in a document. If you are trying to use hashing to match images, any adversary (as well as innocent image processing/resizing tools) can create a totally different hash for, perceptually, the same image.  Researchers have built creative tools to better "hash" an image based on how it looks rather than the much more fragile file architecture hiding behind it.  
+Hashing is intentionally fragile, so simple edits to complex media will "trigger" most hashing tools to report a mismatch.  Consider however where these changes may have no discernible impact to the meaning of a document (think about using a thesaurus to change one word in a book to a word that means the same - is the book actually different)?  
 
-Images hashes provide a way to track the spread of harmful imagery including NCII and CSAM, but are also subject to collision attacks and weaknesses, and researchers are finding potential ways to "reverse" perceptual hashes so cannot be used as absolute guarantees.
+Images (and other media) are particularly challenging to "hash" in the same way we use hashes for absolute precise matching of other types of files. Changing a pixel in an image is even easier to hide than changing a word in a document. If you are trying to use hashing to match images, any adversary (as well as innocent image processing/resizing tools) can create a totally different hash for, perceptually, the same image.  Researchers have built creative tools called [perceptual hashing](https://en.wikipedia.org/wiki/Perceptual_hashing) to better "hash" an image based on how it looks rather than the much more fragile file architecture hiding behind it.  
+
+Images hashes provide a way to track the spread of abusive imagery including NCII and CSAM, but are also subject to collision attacks and weaknesses, and researchers are finding potential ways to "reverse" perceptual hashes so cannot be used as absolute guarantees.

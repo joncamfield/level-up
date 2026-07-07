@@ -71,9 +71,6 @@ Get-FileHash -InputStream $stringAsStream -Algorithm SHA384 | Select-Object Has
 
 Microsoft provides [PowerShell GetHash documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-7.4)
 
-### OSX
-
-Terminal
 
 ### OSX and Linux
 
@@ -91,4 +88,4 @@ To get a hash of a file, use this command, replacing FILENAME with the path to t
 
 `openssl dgst -md5 FILENAME`
 
-*Of note, in Ubuntu, you can also install **nautilus-gtkhash** to add a right-click menu tab that will generate hashes for you in the file manager GUI.*
+*Of note, in Ubuntu, you can also install **nautilus-gtkhash** (in Ubuntu 22 and before) or [Quick File Hasher](https://github.com/dd-se/nautilus-extension-quick-file-hasher) to add a right-click menu tab that will generate hashes for you in the file manager GUI.*

@@ -18,7 +18,7 @@ We've gone through many of the most visible uses of hashes, but it's worth takin
 
 ## Verification
 
-We've focused a lot of our lesson time on the verification of a hash to double check the integrity of a document or downloaded file, but there are some other notable uses.
+We've focused a lot of our lesson time on the verification of a hash to double check the integrity of a document or downloaded file - useful to ensure you downloaded the software you intended to download, or making sure a document is the same one that was sent. Using hashes for verification is central to digital "signing" of content, including in PGP, where the hashed value is encrypted, as opposed to encrypting the entire contents again (separately from encrypting them to send of course) just for the signature function -- but there are some other notable uses.
 
 ## Private Secret Sharing
 
@@ -42,7 +42,8 @@ An unfortunately common problem has been bad actors inside the digital rights co
 
 Another use is future proofing a statement without necessarily making the statement public.  If you want to make a prediction, or simply state something you know in the present time and might want to be able to, in the future, absolutely prove that you knew it at that specific time, posting a hashed value of that statement to a public location where edits are visible (such as on your social media page, or on a website), provides a path.  At whatever moment you're willing to reveal this piece of knowledge, you can refer to that earlier hashed value and provide the original string (which you must remember exactly, like a password, for this to work).  The timestamp records from wherever you posted the hash, plus the verification of the hash with the original value, provides proof that you wrote that specific original value and hashed it at that moment in time.
 
-## Other creative use cases
+## What other creative or protective uses might hashes help with?
 
 Can participants come up with other creative applications of hashing tools?
 
+For a fun final activity, XKCD has a great example of a poorly implemented hash system for passwords with their [password crossword](https://www.explainxkcd.com/wiki/index.php/1286:_Encryptic) - which someone made into a playable game based on an Adobe password leak: https://zed0.co.uk/crossword/ with the password hints people used matched to the unsalted hashes of the most common passwords.
