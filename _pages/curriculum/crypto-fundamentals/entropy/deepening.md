@@ -1,12 +1,12 @@
 ---
 layout: content-page
 title: "Deepening : Working with Entropy" # name your lesson unit
-author: #The public names / pseudonyms of the authors
+author: Jon Camfield, Robert J. Hansen #The public names / pseudonyms of the authors
 parent: "Entropy and Password Security" #The titles of pages this links from
 summary: "" #A 1 P summary that will go on listing pages and at the top of this page
 permalink: /curriculum/crypto-fundamentals/entropy/deepening/working-with-entropy/ #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
 breadcrumb: "Working with Entropy" #The name of this lesson
-date: 2024-01 #Last updateddate in YYYY-MM
+date: 2026-08 #Last updateddate in YYYY-MM
 adids: Deepening # ADIDS element(s): Activity and Discussion, Input, Deepening, Synthesis
 duration: 60-90 minutes #free form duration/time field
 platforms: #Where relevant, what mobile or computing platforms does this apply to: Linux, Mac OS, Windows, Android, iOS
@@ -55,6 +55,4 @@ A (now-defunct) firm called DataGenetics put out a really [great post on PIN cod
 Going through just 5 of most common PINs from their 2018 analysis will net you over 20% of the PIN codes which were in the 3.5 million code leak, and you'll get 50% with only 426 guesses.
 
 Of course, going against any single specific PIN code among the 10,000 potential options, you never know -- but broadly speaking, and presuming PIN code habits haven't changed much since this data leak; you have a one-in-ten chance with just one guess of 1234, and one-in-four chance to guess in 20 guesses, and 426 guesses gets you to 1-in-2 chances.
-
-*The last discussion bit here puts this all together to painfully explain at length and with math you can use at home the famous ["Password Security" comic by xkcd](https://xkcd.com/936/)*
 

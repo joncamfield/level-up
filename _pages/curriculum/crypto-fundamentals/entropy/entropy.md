@@ -5,8 +5,8 @@ summary: Entropy is the measure of randomness, and it is exactly the randomness 
 permalink: /curriculum/crypto-fundamentals/entropy/
 parent: Fundamentals of Cryptography
 breadcrumb: Entropy and Password Security
-author: Jon Camfield
-date: 2024-02
+author: Jon Camfield, Robert J. Hansen (Reviewer) 
+date: 2026-08
 platforms: 
 level: Advanced
 prerequisites: Safer Communication, Protecting Data

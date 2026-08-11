@@ -1,12 +1,12 @@
 ---
 layout: content-page
 title: "Synthesis : Password Security in a New Light" # name your lesson unit
-author: #The public names / pseudonyms of the authors
+author: Jon Camfield, Robert J. Hansen (Reviewer) #The public names / pseudonyms of the authors
 parent: "Entropy and Password Security" #The titles of pages this links from
 summary: "" #A 1 P summary that will go on listing pages and at the top of this page
 permalink: /curriculum/crypto-fundamentals/entropy/synthesis/entropy-and-security/ #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
 breadcrumb: "Password Security in a New Light" #The name of this lesson
-date: 2024-01 #Last updateddate in YYYY-MM
+date: 2026-08 #Last updateddate in YYYY-MM
 adids: Synthesis # ADIDS element(s): Activity and Discussion, Input, Deepening, Synthesis
 duration: 30-60 minutes #free form duration/time field
 
@@ -32,11 +32,9 @@ Rewinding waaaaay back to where we started, language is not remotely random. We 
 
 Entropy will forever drive how easy it is to guess a password.  It is the reason behind traditional guidance about super hard to remember passwords like "&Gs3a9(A"  The entropy of that is high, as the potential character set is 95 potential options per character (26 lower case, plus 26 upper case, plus 10 numbers, plus 33 symbols), or 6.57 potential bits of entropy per character, but that depends on each letter being **truly** random.
 
-That's a lot (2^(6.57×8) = 6.63×10¹⁵ (6 *quadrillion*) guesses packed into a relatively short password. But there are more ways to generate entropy than just randomness -- length works also!
+That's a lot (2^(6.57×8) = 6.63×10¹⁵ (6 *quadrillion*) guesses packed into a relatively short password. But there are more ways to generate entropy than just randomness -- length works also! 
 
-"Correct Horse Battery Staple"
-
-https://www.explainxkcd.com/wiki/index.php/936:_Password_Strength
+*So yes, this lesson is really just a way to painfully [explain at length](https://www.explainxkcd.com/wiki/index.php/936:_Password_Strength) and with math you can use at home the famous ["Password Security" comic by xkcd](https://xkcd.com/936/) that suggest "Correct Horse Battery Staple" as a password*
 
 Play around with what password lengths (presuming random character selection) look like with entropy and different character combinations here: https://silverhammermba.github.io/password/
 
