@@ -16,11 +16,17 @@ duration: 30-60 minutes #free form duration/time field
 
 ## Some useful calculations - bits of entropy
 
-In information theory, these guesses have been turned into powers of two and called "bits" of entropy to make them a bit more flexible across more types of data.  A digit, with 10 possible guesses, has just over 3.32 "bits" of entropy (2^3.32 = 10 (ish)). This makes for some fun math, as you can simply add the entropy bit calculation when adding more numbers, so your average 4-digit PIN is 3.32+3.32+3.32+3.32 or 13.28, or 2^13.28 - which gets us back to 10,000 (OK, technically that's 9946, but we rounded off some numbers early on, so it should be 2^3.3219281...).
+In information theory, these guesses have been turned into powers of two and called "bits" of entropy to make them a bit more flexible across more types of data.  A digit, with 10 possible guesses, has just over 3.32 "bits" of entropy (2^3.32 = 10 (ish)). 
+
+The calculation here in log2, which mathematically answers the question, "two to *what power* equals this number?" It is this number that entropy is measured in: the logarithm (base two) of different possibilities that must be considered. 
+
+For example - throwing a die yields one of six results: six possibilities must be considered, and log2 of six is about 2.6. Before the die is thrown it has 2.6 bits of entropy. Once you see it you can stop considering the five faces that didn't show up and focus on the one that did. To you, it now has one state to be considered, and log2 of one is zero — it has no entropy any more. But to others who didn't see the die, it still has 2.6 bits of entropy.
+
+This makes for some fun math, as you can simply add the entropy bit calculation when adding more numbers, so your average 4-digit PIN is 3.32+3.32+3.32+3.32 or 13.28, or 2^13.28 - which gets us back to 10,000 (OK, technically that's 9946, but we rounded off some numbers early on, so it should be 2^3.3219281...). 
 
 ## But What About Passwords
 
-I am sorry to inform you that words - and passwords - are even worse.
+We spent a lot of time talking about PIN codes. I am sorry to inform you that words - and passwords - are even worse.
 
 Rewinding waaaaay back to where we started, language is not remotely random. We would think a letter would have 26 guesses, or 4.7 bits of entropy, what Shannon actually found is that when looking at language, it's closer to just 2.62 bits - less than a random number!
 

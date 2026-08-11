@@ -20,13 +20,19 @@ In this lesson, a significant amount of Input is interwoven in the Deepening exe
 ## Input Content 
 
 
-Entropy is a small word for a big concept. Entropy is a measure of chaos, or the absence of order.
+Entropy measures the uncertainty of something. 
 
-<!-- In physics, entropy is the Second Law of thermodynamics. Given the general state of the world, it may surprise you that life is amazingly anti-entropic. The complexities of all the systems working in any form of harmony to keep us all living on this planet is an amazing example of order - one in fact that requires a substantial portion of a star's energy output over billions of years to create and maintain.  In fact, the immense, raw, nuclear destruction ongoing inside that star is the "balance" of entropy that makes our order possible. -->
+A Vegas card sharp might say the secret of success is to always keep them guessing. In computer security we take it a step further. It's not enough to keep them guessing. We also want to know how much they'll have to guess and how lucky they'll have to be. We use physics to describe both how much time it takes to make a guess (the Margolus-Levitin theorem) and how much energy it costs to make a guess (the Landauer theorem). Knowing how much time and energy guesses cost, we can then use entropy to make guessing impractical for any computer.
 
-What does that have to do with passwords, or security, you ask?  If you've ever had to scribble your mouse across the screen for a few minutes to create a truecrypt or (more recently) veracrypt encrypted drive, you experienced this.  You were creating some chaos, some randomness... some *entropy* to make the drive more secure.  Why does that work?
+Not all guesses have to be equal, however, and this is the core lesson of this segment, particularly as it applies to real people choosing things like passwords, security questions, or even pin numbers.  
 
-Guessing facts about a city you've never visited is easy because cities follow many similar patterns -- and often legal regulations -- about how they exist, and as you understand more about basic patterns (does a city have streets) you can probably guess that it also has cars in it, and sidewalks, parking lots or garages, and so on. Language itself has a similar cadence, with rules of spelling and grammar (well, less so with English) and the study of information entropy in language by Claude Shannon is foundational to many security concepts today. Consider Shannon's original experiment here, as explained in [The Bit Bomb](https://aeon.co/essays/how-a-polymath-transformed-our-understanding-of-information):
+<!--What does that have to do with passwords, or security, you ask?  If you've ever had to scribble your mouse across the screen for a few minutes to create a truecrypt or (more recently) veracrypt encrypted drive, you experienced this.  You were creating some chaos, some randomness... some *entropy* to make the drive more secure.  Why does that work?-->
+
+Guessing facts about a city you've never visited is easy because cities follow many similar patterns -- and often legal regulations -- about how they exist, and as you understand more about basic patterns (does a city have streets) you can probably guess that it also has cars in it, and sidewalks, parking lots or garages, and so on. 
+
+Language itself has a similar cadence, with rules of spelling and grammar (well, less so with English) and the study of information entropy in language by Claude Shannon is foundational to many security concepts today. 
+
+Consider Shannon's original experiment here, as explained in [The Bit Bomb](https://aeon.co/essays/how-a-polymath-transformed-our-understanding-of-information):
 
 	"Shannon expanded this point by turning to a pulpy Raymond Chandler detective story […] He flipped to a random passage […] then read out letter by letter to his wife, Betty. Her role was to guess each subsequent letter […] Betty’s job grew progressively easier as context accumulated […] a phrase beginning ‘a small oblong reading lamp on the’ is very likely to be followed by one of two letters: D, or Betty’s first guess, T (presumably for ‘table’). In a zero-redundancy language using our alphabet, Betty would have had only a 1-in-26 chance of guessing correctly; in our language, by contrast, her odds were closer to 1-in-2. " 
 
