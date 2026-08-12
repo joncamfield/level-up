@@ -5,8 +5,8 @@ summary: Hashes help provide proof of integrity and knowledge across everything 
 permalink: /curriculum/crypto-fundamentals/hashes/
 parent: Fundamentals of Cryptography
 breadcrumb: Hashes
-author: Jon Camfield
-date: 2024-07
+author: Jon Camfield, Robert J. Hansen (Reviewer)
+date: 2026-08
 platforms: Linux, MacOSX, Windows
 level: Advanced
 prerequisites: Entropy

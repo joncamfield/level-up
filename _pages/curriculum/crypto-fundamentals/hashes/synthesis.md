@@ -1,12 +1,12 @@
 ---
 layout: content-page
 title: "Synthesis : Hashing" # name your lesson unit
-author: Jon Camfield #The public names / pseudonyms of the authors
+author: Jon Camfield, Robert J. Hansen  #The public names / pseudonyms of the authors
 parent: "Hashes" #The titles of pages this links from
 summary: "A review of hashes and discussion of other creative uses for them." #A 1 P summary that will go on listing pages and at the top of this page
 permalink: /curriculum/crypto-fundamentals/hashes/synthesis/hashing-together/ #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
 breadcrumb: "Other Uses for Hashes" #The name of this lesson
-date: 2024-07 #Last updateddate in YYYY-MM
+date: 2026-08 #Last updateddate in YYYY-MM
 adids: Synthesis # ADIDS element(s): Activity and Discussion, Input, Deepening, Synthesis
 duration: 15-30 minutes #free form duration/time field
 
@@ -36,7 +36,7 @@ However - uploading the file can reveal to such an adversary that they have trig
 
 ### Threat Sharing
 
-An unfortunately common problem has been bad actors inside the digital rights community, and a need to coordinate a community-wide response without abusing the privacy of the alleged bad actor, any potentially unwilling collaborates, and definitely not their victims.  A powerful, public example of this use case is seen in [blog post](https://blog.patternsinthevoid.net/the-ccc-men-who-hate-women.html) (***Content Warning**: rape, sexual assault, whistleblower retaliation*).  In this post, people who know and/or have a very informed guess can verify using the hash who the person being discussed is without this person's identity, and potential ability to more fully change their ways, being widely harmed.  It's worth noting that you may have to give some hints (like firstname lastname all lowercase) to ensure you are both hashing the same string and not failing to match because someone's using capitals and the other isn't).
+An unfortunately common problem has been bad actors inside the digital rights community, and a need to coordinate a community-wide response without abusing the privacy of the alleged bad actor, any potentially unwilling collaborates, and definitely not their victims.  A powerful, public example of this use case is seen in this [blog post](https://blog.patternsinthevoid.net/the-ccc-men-who-hate-women.html) (***Content Warning**: rape, sexual assault, whistleblower retaliation*).  In this post, people who know and/or have a very informed guess can verify using the hash who the person being discussed is without this person's identity, and potential ability to more fully change their ways, being widely harmed.  It's worth noting that you may have to give some hints (like firstname lastname all lowercase) to ensure you are both hashing the same string and not failing to match because someone's using capitals and the other isn't).
 
 ## "I Told You So"
 
@@ -46,4 +46,4 @@ Another use is future proofing a statement without necessarily making the statem
 
 Can participants come up with other creative applications of hashing tools?
 
-For a fun final activity, XKCD has a great example of a poorly implemented hash system for passwords with their [password crossword](https://www.explainxkcd.com/wiki/index.php/1286:_Encryptic) - which someone made into a playable game based on an Adobe password leak: https://zed0.co.uk/crossword/ with the password hints people used matched to the unsalted hashes of the most common passwords.
+For a fun final activity, XKCD has a great example of a poorly implemented hash system for passwords with their [password crossword](https://www.explainxkcd.com/wiki/index.php/1286:_Encryptic) - which someone made into a [playable game](https://zed0.co.uk/crossword/) based on an Adobe password leak, with the password hints people used matched to the hashes of the most common passwords.

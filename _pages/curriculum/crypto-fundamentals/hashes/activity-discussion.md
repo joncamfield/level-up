@@ -6,7 +6,7 @@ parent: "Hashes" #The titles of pages this links from
 summary: "This activity runs participants through a very simple, but real-world example - the checksum of a credit card." #A 1 P summary that will go on listing pages and at the top of this page
 permalink: /curriculum/crypto-fundamentals/hashes/activity/hash-creation/ #The full URL of this, for its primary parent page, e.g. /curriculum/safer-browsing/anonymity-and-circumvention/activity-discussion/offline-circumvention/
 breadcrumb: "Hash creation" #The name of this lesson
-date: 2024-07 #Last updateddate in YYYY-MM
+date: 2026-07 #Last updateddate in YYYY-MM
 adids: Activity and Discussion # ADIDS element(s)
 duration: 30 minutes #free form duration/time field
 
