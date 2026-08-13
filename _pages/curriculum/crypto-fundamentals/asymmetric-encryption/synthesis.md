@@ -14,21 +14,15 @@ duration: 30 minutes #free form duration/time field
 
 # Synthesis
 
-The most amazing part about asymmetric encryption is that it is everywhere, and it all essentially  boils down towhat we've just worked out by hand. 
+The most amazing part about asymmetric encryption is that versions of it are everywhere, and it all essentially boils down to what we've just worked out by hand:
 
-TLS/HTTPS - The cryptography protecting your connections to websites, uses certificates, which are functionally fancy public keys.
+* TLS/HTTPS - The cryptography protecting your connections to websites, uses certificates, which are functionally fancy public keys.
+* PGP and S/MIME, ways to encrypt email - same deal.  PGP uses keys more directly, and S/MIME also uses certificates, which contain a key within them.
 
-PGP and S/MIME, ways to encrypt email - same deal.  PGP uses keys more directly, and S/MIME also uses certificates, which contain a key within them.
-
-These are all broadly using the same toolkits.  There absolutely are important implementation differences, and they all **also** use symmetric encryption as part of their process - but fundamentally, they use asymmetric, public/private key exchange, as the core part of how they verify you're talking with who you think you are, and to jumpstart the encryption process.  
+These are all using the same core concepts. There absolutely are important implementation differences, and they all **also** use symmetric encryption as part of their process. Fundamentally, however, they use asymmetric, public/private key exchange, as the core part of how they verify you're talking with who you think you are, and to jumpstart the encryption process. Understanding the universality of how public/private keys work and how they are part of not just PGP, but Certificates, code signing keys, and all parts of modern encryption.
 
 
-## If asymmetric crypto is so cool, what about symmetric crypto? (TBD)
-
-* limits of RSA
-* layering of symmetric keys inside asymetric systems - PGP! 
-
-## How do these different tools actually use asymmetric and symmetric encryption?
+## How do these different tools actually use asymmetric encryption?
 
 ### PGP
 
@@ -54,6 +48,8 @@ So; cool fact! PGP emails actually encrypt the message and any attachments to a 
 
 ### S/MIME 
 
+S/MIME is another form of encrypted email, more often used in very large companies and governments.
+
 S/MIME (and HTTPS) takes an important, different approach to the identity problem, which is to make it dependent on an organization and a broader structure to maintain. Instead of a PGP Key, S/MIME uses a "certificate" structure, which at the end of the day is just another standard file structure to capture the parts of all the relevant keys together. Certificates generally use the [x.509 standard](https://en.wikipedia.org/wiki/X.509) - and these are for most intents and purposes the same structures you also find in HTTPS certificates!
 
 Everything about asymmetric encryption, and PGP keys, flows into S/MIME "certificates" as well.  A "Certificate" is simply the public key, descriptions of who or what it is connected to, plus organizational information, and a section on what authority has signed off proving that this key information is accurate for this organization and person (or website).
@@ -76,22 +72,15 @@ Back in S/MIME land, you may specifically want to set up an independent infrastr
 
 Structurally, HTTPS (now TLS, previously SSL) is the same as with S/MIME above - each browser has a set of root certificates it inherently trusts (which you can add more to at your own risk, as well are remove some from!) 
 
-With HTTPS being signifcantly more widely used than S/MIME, trust of the root certificates is incredibly important, as any root certificate is granted the ability to sign off on any website domain anywhere!
+With HTTPS being significantly more widely used than S/MIME, trust of the root certificates is incredibly important, as any root certificate is granted the ability to sign off on any website domain anywhere!
 
 Browsers provide a default list of trustworthy root certificates, and so far have been very clear that abuse of a root certificate is a path to removal from browsers - this of course has its own risks as the diversity of the web browser market shrinks, putting significant pressure on a few vendors who have to [stand up against conflicting market pressure and state influence](https://www.computerworld.com/article/1645564/googles-cert-sanction-may-hamper-browsing-trigger-china-retaliation.html). In addition to that pressure, it is no simple thing to remove a root certificate, as thousands of websites may rely on it.  You can read about this [2018 incident resulting in Symantec's certificate being removed](https://blog.mozilla.org/security/2018/03/12/distrust-symantec-tls-certificates/), as well as [Mozilla's Certificate Program](https://wiki.mozilla.org/CA)
 
 
+## Signal
 
+At the risk of grossly simplifying a lot of incredible work under the hood, Signal also uses an asymmetric key exchange to bootstrap it's "[Double Ratchet](https://signal.org/docs/specifications/doubleratchet/#double-ratchet)" protocol.  
 
-## Signal?
+Even though Signal users similar cryptographic concepts, how it implements these concepts improves mightily on the security that PGP provides. Once a PGP key is compromised, it can be used to read any message the malicious actor has access to which was encrypted using it.
 
-At the risk of grossly simplifying a lot of incredibly cool work under the hood, Signal also uses an asymmetric key exchange to bootstrap it's "Double Ratchet" protocol.  Signal improves mightily on the security that PGP provides. Once a PGP key is compromised, it can be used to read any message the malicious actor has access to which was previously encrypted using it.  Signal, on the other hand, is constantly changing its keys in the background, such that access to any one key only provides access to the specific message it encrypted.  That said, the "identity" key is critical in ensuring you're having this super-secure conversation with who you think you are, which is why it's important to take note whenever you get that "Safety Number with ... has changed" message!
-
-## Beyond RSA (TBD)
-
-DH https://crypto.stackexchange.com/a/42187
-
-ECC
-
-Post-Quantum? (Martijn's piece?)
-
+Signal, on the other hand, is constantly changing its keys in the background, such that access to any one key only provides access to the specific message it encrypted.  That said, the "identity" key is critical in ensuring you're having this super-secure conversation with who you think you are, which is why it's important to take note whenever you get that "Safety Number with ... has changed" message!

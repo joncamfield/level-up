@@ -45,5 +45,8 @@ The rest of symmetric key encryption - which just means a type of encryption whe
 
 ## What Asymmetric Encryption is
 
-Asymmetric encryption takes advantage of some quirks in math to be able to get beyond the limits of otherwise-powerful One Time Pads and similar symmetric encryption tools - they allow you to share, absolutely publicly, a piece of information that enables people to create messages that only the person with a mathematically corresponding piece of information can read.  We will actually work through the math behind this in the next portion, but at it's root it exploits the hard fact that multiplication is a lot easier, from a computational standpoint, than division is.
+Asymmetric encryption takes advantage of some quirks in math to be able to get beyond the limits of otherwise-powerful One Time Pads and similar symmetric encryption tools - they allow you to share, absolutely publicly, a piece of information that enables people to create messages that only the person with a mathematically corresponding piece of information can read.  
 
+An actual way to do this was only recently discovered - in 1977. [Ron Rivest, Adi Shamir, and Leonard Adleman created the first publicly-known asymmetric encryption algorithm](https://en.wikipedia.org/wiki/RSA_cryptosystem#History), named RSA for their initials. 
+
+Since then additional mathematical equations have been turned in to the one-way functions critical for asymmetric encryption. We will actually work through the math behind RSA in the next portion.

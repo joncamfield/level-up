@@ -35,7 +35,7 @@ This lesson first goes through the encryption and decryption process with pre-se
 
 We are going to actually encode and messages, and learn a few bits of the math behind how public/private key cryptography actually works. 
 
-The private and public keys in asymmetric cryptography - be that PGP, TLS certificates, or other places you'll find it - are numbers.  Very -- very large numbers.  And specifically, they are numbers with some very weird inter-connections, based on prime numbers (numbers like 11, but unlike 25, which can only be evenly divided by themselves and the number 1) and a calculation called "modular" arithmetic. 
+The private and public keys in asymmetric cryptography - be that PGP, TLS certificates, or other places you'll find it - are numbers.  Very -- very large numbers.  And specifically, they are numbers with some very weird inter-connections, based on prime numbers (numbers which can only be evenly divided by themselves and the number 1, like 11, but unlike 25) multiplication, and a calculation called "modular" arithmetic. 
 
 To do this by hand, we are going to use very small numbers.  In real life applications, these are numbers with **hundreds** or even **thousands** of digits. (you can explore this with a few tools like pgpdump https://github.com/kazu-yamamoto/pgpdump !)
 
@@ -55,19 +55,20 @@ To do this by hand, we are going to use very small numbers.  In real life applic
     * Take ϕn,  and add 1
     * Divide that by e. If we get a simple integer, that's our answer.  The "add 1" step here is to ensure that we find the mod = 1 result.
     * If we got a number with decimals, we keep going - each step from here multiplies ϕn incrementally - 2x, 3x, 4x, etc., then adds 1, and then divides by e - until we get a plain integer.  With the numbers e=7 and ϕn=120, here is the process:
-
-`
+```
 	Try 1: (120×1 +1) / 7 = 121/7 = 17.285714...
 	Try 2: (120×2 +1) / 7 = 241/7 = 34.428571...
 	Try 3: (120×3 +1) / 7 = 361/7 = 51.571428...
 	Try 4: (120×4 +1) / 7 = 481/7 = 68.714285...
 	Try 5: (120×5 +1) / 7 = 601/7 = 85.857142...
 	Try 6: (120×6 +1) / 7 = 721/7 = 103
-`
+```
 
+  * **BINGO! The number we're looking for is 103.**  This number will also always itself be smaller than the number we are dividing in to, because that would simply cause us to loop over again - so if you kept going, you will find more numbers that work, but it is this first one, which is less than the number you're dividing in to, which is the one that successfully completes the math.
 
-    * BINGO! The number we're looking for is 103.  This number will also always itself be smaller than the number we are dividing in to, because that would simply cause us to loop over again - so if you kept going, you will find more numbers that work, but it is this first one, which is less than the number you're dividing in to, which is the one that successfully completes the math.
-6. Now we (finally!) have all the pieces to build our public and private keys. It's worth noting that technically and mathematically, either of these keys could be either the public or private key - they are effectively mirrors of each other - which unlocks some super fun tricks we'll get to soon. Traditionally with RSA, we use e and n for the public key, and d and n for the private key, and this is usually written like this: Public Key: (e,n) , Private Key: (d,n).  In fact, you can use pgpdump's web interface on a sample or public key and see it provide the n and e values of the key! It's worth noting that in most cases, e is set to 65537 (01 00 01 in hex) as a default.
+Now we (finally!) have all the pieces to build our public and private keys. It's worth noting that technically and mathematically, either of these keys could be either the public or private key - they are effectively mirrors of each other - which unlocks some super fun tricks we'll get to soon. 
+
+Traditionally with RSA, we use e and n for the public key, and d and n for the private key, and this is usually written like this: Public Key: (e,n) , Private Key: (d,n).  In fact, you can use pgpdump's web interface on a sample or public key and see it provide the n and e values of the key! It's worth noting that in most cases, e is set to 65537 (01 00 01 in hex) as a default.
 
 
 ### Public and Private Keys; Encrypting and Decrypting
@@ -104,3 +105,4 @@ These materials were crucial in building and cross-checking this resource, and p
 * [Wikipedia, The Extended Euclidean Algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm#Example)
 * [Euclidean algorithms (Basic and Extended)](https://www.geeksforgeeks.org/euclidean-algorithms-basic-and-extended/)
 * [Modular arithmetic](https://nhoyle-unsw.github.io/learn-encryption-with-python/Modular-arithmetic.html)
+* [A History of Cryptography From the Spartans to the FBI](https://thereader.mitpress.mit.edu/a-history-of-cryptography-from-the-spartans-to-the-fbi/)
