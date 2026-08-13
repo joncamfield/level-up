@@ -58,7 +58,7 @@ QuickerHash will start up with a small selection of very common hash algorithms 
 * Select the Hash a File tab
 * Select the quickerhash file you have downloaded
 * Choose which hash you want to compute - in this case, the quickerhash releases use SHA-256
-* Compare the hash it created with the hash from the website, and see if they match.
+* Compare the hash it created with the hash from the website - you can review it manually, or for better accuracy, paste in the value from the website in the "expected value" field  and see if they match.
 
 Hopefully the values matched! If not, verify you used the same hash algorithm, and are comparing the same downloaded file for both the operating system (Linux, MacOS, Windows) AND version that you downloaded. 
 
