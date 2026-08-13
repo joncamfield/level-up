@@ -16,7 +16,7 @@ platforms: #Where relevant, what mobile or computing platforms does this apply t
 
 # Materials 
 
-* Participants should download and install [[robs tool]].  Participants who don't want to install any new software can reference the command line tool guidance below on all platforms.
+* Participants should download and install [QuickerHah](https://github.com/rjhansen/quickerhash/releases).  Participants who don't want to install any new software can reference the command line tool guidance below on all platforms.
 
 # Deepening
 
