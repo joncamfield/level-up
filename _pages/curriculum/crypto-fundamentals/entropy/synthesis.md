@@ -38,6 +38,8 @@ That's a lot (2^(6.57×8) = 6.63×10¹⁵ (6 *quadrillion*) guesses packed into 
 
 Play around with what password lengths (presuming random character selection) look like with entropy and different character combinations here: https://silverhammermba.github.io/password/
 
+For a more technical exercise on password security, [SAFETAG's Password Strength Activity](https://safetag.org/activities/password_strength/) walks you through real-world password cracking tools.
+
 ## Real World Impacts
 
 It's important to close on a note of feasibility - both on what attackers can actually do, and how easy it is to dramatically up the difficulty for even the most powerful adversaries.
