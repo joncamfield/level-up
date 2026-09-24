@@ -6,7 +6,6 @@ summary: LevelUp is a living project intended to provide support to, and enable 
 date: 2016-06
 permalink: /community/about/
 parent: Community
-weight: 6
 breadcrumb: About
 ---
 #### This resource is continually evolving, as is the community. 
